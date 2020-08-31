@@ -24,3 +24,9 @@
       ```curl http://localhost:2375/images/json```
 
 To test remotely, use the PC name or IP address of Docker Host
+
+
+
+## Bookmarks
+
+1. Container Health checkup - https://medium.com/better-programming/docker-healthchecks-eb744bfe3f3b
