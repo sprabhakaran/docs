@@ -1,5 +1,5 @@
 
-## Enable API server
+## Enable API server for Linux
 
 1. Navigate to /lib/systemd/system in your terminal and open docker.service file
 
@@ -24,6 +24,18 @@
       ```curl http://localhost:2375/images/json```
 
 To test remotely, use the PC name or IP address of Docker Host
+
+## Enable API server for MAC
+
+For security reasons, we choose to not expose that port directly. However, as described in our FAQ you can run a socat container to redirect the Docker API exposed on the unix domain socket in Linux to the port of your choice on your OSX host:
+
+```docker run -d -v /var/run/docker.sock:/var/run/docker.sock -p 127.0.0.1:1234:1234 bobrik/socat TCP-LISTEN:1234,fork UNIX-CONNECT:/var/run/docker.sock```
+
+
+and then:
+
+
+```export DOCKER_HOST=tcp://localhost:1234```
 
 
 
